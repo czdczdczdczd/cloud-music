@@ -1,16 +1,20 @@
 import React from 'react';
 import { IconStyle } from './assets/iconfont/iconfont';
 import {GlobalStyle} from "./style";
-import MyRouter from './routes';
+import { HashRouter, useRoutes } from 'react-router-dom';
+import routes from './routes';
 
-
+const Pages = () => {
+  const element = useRoutes(routes);
+  return element;
+}
 function App() {
   return (
-    <div className="App">
+    <HashRouter>
       <GlobalStyle />
       <IconStyle />
-      <MyRouter />
-    </div>
+      {<Pages/>}
+    </HashRouter>
   );
 }
 
